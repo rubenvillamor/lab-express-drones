@@ -17,6 +17,10 @@ mongoose.connect("mongodb://127.0.0.1:27017/lab-express-drones")
 console.log("conectado")
 return Drone.insertMany(drones)
 })
+.then (() => {
+console.log("Desconectado")
+  mongoose.connection.close()
+})
 .catch((error) => {
     next(error)
 })
